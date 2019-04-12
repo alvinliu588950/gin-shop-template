@@ -35,11 +35,10 @@ func(p *Product) GetAll() (products []Product, err error) {
 }
 
 func(p *Product) Update() (err error) {
-	// Save will include all fields when perform the Updating SQL, even it is not changed
-	return db.Orm.Save(p).Error
+	return db.Orm.Save(p).Error // Save will include all fields when perform the Updating SQL, even it is not changed
 }
 
+// Soft delete
 func(p *Product) Delete() (err error) {
-	// Soft delete
 	return db.Orm.Delete(p).Error
 }
